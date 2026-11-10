@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosRequestConfig, InternalAxiosRequestConfig } fro
 import { sessionStore } from '@/lib/storage';
 import type { Page, PageMeta, Session } from './types';
 
-const baseURL =' https://unfulminating-amicably-sha.ngrok-free.dev/api/v1';
+const baseURL =' https://unfulminating-amicably-sha.ngrok-free.dev/api/v1'; 
 
 export const http = axios.create({ baseURL, timeout: 30_000 });
 
