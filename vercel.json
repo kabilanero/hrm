@@ -1,8 +1,6 @@
 {
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/api/:path*", "destination": "https://imani-pausal-donna.ngrok-free.dev/api/:path*" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

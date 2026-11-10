@@ -2,9 +2,14 @@ import axios, { AxiosError, AxiosRequestConfig, InternalAxiosRequestConfig } fro
 import { sessionStore } from '@/lib/storage';
 import type { Page, PageMeta, Session } from './types';
 
-const baseURL ='https://unfulminating-amicably-sha.ngrok-free.dev/api/v1'; 
+const baseURL = (import.meta.env.VITE_API_URL as string | undefined) || '/api/v1';
 
-export const http = axios.create({ baseURL, timeout: 30_000 });
+// ngrok's free tier injects an HTML warning page unless this header is sent. Harmless for other hosts.
+export const http = axios.create({
+  baseURL,
+  timeout: 30_000,
+  headers: { 'ngrok-skip-browser-warning': 'true' },
+});
 
 /** Normalised error thrown by every API call. */
 export class ApiError extends Error {
